@@ -12,7 +12,8 @@ def index(request):
                 )
         new_fund.save()
         return redirect("cf-home")
-    return render(request,"crowdFunding/index.html")
+    active_funds=Fund.objects.filter(status="In Progress").order_by("-event_datetime")
+    return render(request,"crowdFunding/index.html",{"active_funds":active_funds})
 
 def details(request,slug):
     fund = get_object_or_404(Fund, slug=slug)

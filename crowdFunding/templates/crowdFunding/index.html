@@ -8,4 +8,11 @@
   <div><input type="number" name="goal" placeholder="goal" required/></div>
   <div><button type="submit">Create Request</button></div>
 </form>
+{% for fund in active_funds %}
+<hr>
+    <p>{{ fund.title }}</p>
+    <p>{{ fund.status }}</p>
+    <p>{{ fund.goal }}</p>
+
+{% endfor %}
 {% endblock %}

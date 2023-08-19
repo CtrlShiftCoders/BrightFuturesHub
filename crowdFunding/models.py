@@ -20,13 +20,13 @@ class Fund(models.Model):
 
     def __str__(self):
         return (
-            f"id:{self.id},"
-            f"title:{self.title},"
-            f"content:{self.content},"
-            f"goal:{self.goal},"
-            f"Amount Gained:{self.amount_gained},"
-            f"Status:{self.status},"
-            f"time:{self.event_datetime},"
-            f"slug:{self.slug}"
+            f"id:{self.id}\n"
+            f"title:{self.title}\n"
+            f"content:{self.content}\n"
+            f"goal:{self.goal}\n"
+            f"Amount Gained:{self.amount_gained}\n"
+            f"Status:{self.status}\n"
+            f"time:{self.event_datetime}\n"
+            f"slug:{self.slug}\n"
             )
 
