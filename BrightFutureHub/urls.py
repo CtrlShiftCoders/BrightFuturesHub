@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import crowdFunding
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include("UserAuth.urls"))
-
+    path('auth/', include("UserAuth.urls")),
+    path('funding/',include("crowdFunding.urls"))
 ]

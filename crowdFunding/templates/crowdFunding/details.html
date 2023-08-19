@@ -1,0 +1,22 @@
+{% extends "crowdFunding/base.html" %}
+<!-- {% load tz %} -->
+{% block title %}{{ fund.title }}{% endblock %}
+{% block content %}
+    <p>{{ fund.title }}</p>
+    <p>{{ fund.content }}</p>
+    <p>{{ fund.goal }}</p>
+    <p>{{ fund.amount_gained }}</p>
+    <p>{{ fund.status }}</p>
+    {{ fund.slug }}
+    {{ fund.event_datetime }}
+
+    <div>Ref id:{{ fund.id }}</div>
+    
+    <form action="{% url 'cf-details' fund.slug %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="number" name="donation" placeholder="donation amount" required>
+        </div>
+        <button type="submit">Donate</button>
+    </form>
+{% endblock %}
