@@ -15,10 +15,13 @@ def index(request):
     return render(request,"crowdFunding/index.html")
 
 def details(request,slug):
-    if request.method == "POST":
-        donation=request.POST.get("donation")
-
     fund = get_object_or_404(Fund, slug=slug)
+    if request.method == "POST":        
+        donation=int(request.POST.get("donation"))
+        fund.amount_gained += donation
+        fund.save()
+        return redirect("cf-details",slug=slug)
+
     return render(request, 'crowdFunding/details.html', {'fund': fund})
 
 
