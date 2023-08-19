@@ -1,0 +1,6 @@
+{% extends "main/base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+    <a href="{% url "cf-home" %}"><button> CrowdFunding Home </button></a>
+    <a href="{% url "logout" %}"><button>Logout</button></a>
+{% endblock %}

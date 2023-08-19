@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .forms import LoginForm, SignupForm
-
+from django.contrib.auth.decorators import login_required
 
 def login_user(request):
     if request.method == "POST":
@@ -35,4 +34,7 @@ def signup(request):
         form = SignupForm()
 
     return render(request, "registration/register.html", {'form': form})
-
+@login_required()
+def Logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("login"))

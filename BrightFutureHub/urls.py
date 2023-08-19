@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include("UserAuth.urls")),
     path('funding/', include("crowdFunding.urls")),
-    path('', include("main.urls"))
+    path('', include("main.urls")),
+    path('events/', include("Community.urls"))
 ]

@@ -1,0 +1,12 @@
+{% extends "Community/base.html" %}
+{% block title %} Events - Home {% endblock %}
+{% block content %}
+    {% for fund in active_funds %}
+    <hr>
+        <p>{{ fund.title }}</p>
+        <p>{{ fund.status }}</p>
+        <p>{{ fund.goal }}</p>
+
+    {% endfor %}
+
+{% endblock %}
