@@ -1,18 +1,29 @@
-{% extends "crowdFunding/base.html"%}
+{% extends "crowdFunding/base.html" %}
 {% block title %}Crowd Funding{% endblock %}
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-  <div><input type="text" name="title" placeholder="title" required/></div>
-  <div><textarea placeholder="description" name="description" required></textarea></div>
-  <div><input type="number" name="goal" placeholder="goal" required/></div>
-  <div><button type="submit">Create Request</button></div>
-</form>
-{% for fund in active_funds %}
-<hr>
-    <p>{{ fund.title }}</p>
-    <p>{{ fund.status }}</p>
-    <p>{{ fund.goal }}</p>
-
-{% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="title" placeholder="title" required />
+        </div>
+        <div>
+            <textarea placeholder="description" name="description" required></textarea>
+        </div>
+        <div>
+            <input type="number" name="goal" placeholder="goal" required />
+        </div>
+        <div>
+            <button type="submit">Create Request</button>
+        </div>
+    </form>
+    {% for fund in active_funds %}
+        <hr>
+        <a href="{% url "cf-details" fund.slug %}">
+            <div>
+                <div>{{ fund.title }}</div>
+                <div>{{ fund.status }}</div>
+                <div>{{ fund.goal }}</div>
+            </div>
+        </a>
+    {% endfor %}
 {% endblock %}
