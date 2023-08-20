@@ -1,0 +1,86 @@
+{% extends "crowdFunding/base.html" %}
+{% block title %}Crowd Funding{% endblock %}
+{% load static %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Funding</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Lend</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="flipswitch">
+                    <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
+                    <label class="flipswitch-label" for="fs">
+                        <div class="flipswitch-inner"></div>
+                        <div class="flipswitch-switch"></div>
+                    </label>
+                </div>
+            </div>
+
+            <img src="avatar.png" alt="Avatar" class="avatar">
+        </div>
+    </nav>
+</header>
+<div class="all">
+    <div class="upper">
+        <div class="headingofpage">
+            <h2>Enter details here</h2>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="title" placeholder="title" required />
+            </div>
+            <div>
+                <textarea placeholder="description" name="description" required></textarea>
+            </div>
+            <div>
+                <input type="number" name="goal" placeholder="goal" required />
+            </div>
+            <div>
+                <button type="submit">Create Request</button>
+            </div>
+        </form>
+        <div class="lower">
+            <h3>Your funds</h3>
+        </div>
+        {% for fund in active_funds %}
+    </div>
+</div>
+<div class="details">
+    <a href="{% url  'cf-details' fund.slug %}">
+        <div class="details2">
+            <div>{{ fund.title }}</div>
+            <div>{{ fund.status }}</div>
+            <div>{{ fund.goal }}</div>
+        </div>
+    </a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+{% endfor %}
+{% endblock %}
