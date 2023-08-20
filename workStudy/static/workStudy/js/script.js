@@ -3,7 +3,6 @@
 const container = document.getElementById("listings")
 const btnContainer = document.getElementById("filterBtns")
 const job_list = Array.from(document.getElementsByClassName("Jobs"))
-
 let filters = []
 const Categories = ["Internship", "Remote Job", "Job"]
 
