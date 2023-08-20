@@ -10,7 +10,7 @@
     {{ fund.event_datetime }}
 
     <div>Ref id:{{ fund.id }}</div>
-    
+
     <form action="{% url 'cf-details' fund.slug %}" method="POST">
         {% csrf_token %}
         <div>

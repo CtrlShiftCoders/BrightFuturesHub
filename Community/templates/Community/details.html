@@ -1,0 +1,22 @@
+{% extends "Community/base.html" %}
+<!-- {% load tz %} -->
+{% block title %}{{ event.title }}{% endblock %}
+{% block content %}
+
+    <p>{{ event.title }}</p>
+    <p>{{ event.status }}</p>
+    <p>{{ event.event_description }}</p>
+    <p>{{ event.event_date }}</p>
+    <p>{{ event.event_start_time }}</p>
+    <p>{{ event.type }}</p>
+
+    <div>Ref id:{{ event.id }}</div>
+
+    <form action="{% url 'comm-details' fund.slug %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="number" name="attendee" value="1" type="hiddem" >
+        </div>
+        <button type="submit">Attend Event</button>
+    </form>
+{% endblock %}

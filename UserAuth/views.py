@@ -14,7 +14,7 @@ def login_user(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect("/")
+                return HttpResponseRedirect(reverse("global_index"))
             else:
                 return HttpResponseRedirect(reverse("login"))
     else:

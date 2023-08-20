@@ -1,4 +1,6 @@
 {% extends "registration/base.html"%}
+{% load static %}
+{% block additional_css %} <link rel="stylesheet" href="{% static "registration/styles.css" %}">{% endblock %}
 {% block content %}
 <h1>Login</h1>
 <form method="post">
