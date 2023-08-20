@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .forms import LoginForm, SignupForm
 from django.contrib.auth.decorators import login_required
 
+
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -29,7 +30,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect(reverse("global_index"))
     else:
         form = SignupForm()
 

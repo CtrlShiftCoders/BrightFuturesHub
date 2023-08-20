@@ -19,12 +19,15 @@
     </form>
     {% for event in upcoming_events %}
     <hr>
+        <a href="{% url "comm-details" event.slug %}">
         <p>{{ event.title }}</p>
         <p>{{ event.status }}</p>
         <p>{{ event.event_description }}</p>
         <p>{{ event.event_date }}</p>
         <p>{{ event.event_start_time }}</p>
         <p>{{ event.type }}</p>
+        <p>{{ event.attendees }}</p>
+
 
     {% endfor %}
 

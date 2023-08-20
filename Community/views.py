@@ -9,17 +9,20 @@ from django.contrib.auth.models import User
 @login_required()
 def index(request):
     if request.method == "POST":
+        organiser = request.user
         new_event = Event(
                 title=request.POST.get("title"),
                 event_description=request.POST.get("description"),
                 event_start_time=request.POST.get("time"),
                 event_duration=request.POST.get("duration"),
                 event_date=request.POST.get("date"),
-                type=request.POST.get("type")
+                type=request.POST.get("type"),
+                created_by=organiser
                 )
         new_event.save()
 
         return HttpResponseRedirect(reverse("comm-home"))
+
     upcoming_events = Event.objects.filter(status="Upcoming").order_by("-event_date")
     return render(request, "Community/index.html", {"upcoming_events": upcoming_events})
 
@@ -27,12 +30,21 @@ def index(request):
 @login_required()
 def details(request, slug):
     event = get_object_or_404(Event, slug=slug)
+    attendees = event.attendee_details.all()
     if request.method == "POST":
+
         attendee = int(request.POST.get("attendee"))
         event.attendees += attendee
-        event.save()
-        return HttpResponseRedirect(reverse("comm-details"), slug=slug)
 
-    return render(request, 'Community/details.html', {'event': event})
+        event.attendee_details.add(request.user)
+
+
+        event.save()
+        return HttpResponseRedirect(reverse("comm-details", args=[slug]))
+
+    return render(request, 'Community/details.html', {
+        'event': event,
+        'attendees': attendees
+    })
 
 

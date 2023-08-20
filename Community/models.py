@@ -17,10 +17,10 @@ class Event(models.Model):
     status = models.CharField(max_length=10, default="Upcoming")
     slug = models.SlugField(unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    attendee_details = models.ForeignKey(
-        User, on_delete=models.CASCADE)
+    attendee_details = models.ManyToManyField(
+        User, related_name="attendees", blank=True)
     created_by = models.ForeignKey(
-        User, on_delete=models.CASCADE)
+        User, on_delete=models.CASCADE, related_name="organiser")
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -37,3 +37,4 @@ class Event(models.Model):
             f"Duration:{self.event_duration}\n"
             f"slug:{self.slug}\n"
             )
+
