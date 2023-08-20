@@ -1,0 +1,6 @@
+{% extends "main/base.html" %}
+{% block title %} Get Started {% endblock %}
+{% block content %}
+    <a href="{% url "login" %}"><button>Login</button></a>
+    <a href="{% url "signup" %}"><button>SignUp</button></a>
+{% endblock %}
