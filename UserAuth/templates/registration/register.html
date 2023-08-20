@@ -1,7 +1,21 @@
 {% extends "registration/base.html"%}
+{% load static %}
+{% block more_css %}
+<link rel="stylesheet" href="{% static "UserAuth/style.css" %}">
+{% endblock %}
 {% block content %}
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign Up</button>
-</form>{% endblock %}
+<div class="container2">
+  <h1>Sign Up</h1>
+  <form method="post" class="container3">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn2">Sign Up</button>
+  </form>
+<div class="gotologin">
+  <a href="{% url "login" %}">Already a user ? Click here to login</a>
+</div>
+  {% endblock %}
+</div>
+
+
