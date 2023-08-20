@@ -1,0 +1,25 @@
+{% extends "Community/base.html" %}
+<!-- {% load tz %} -->
+{% block title %}{{ event.title }}{% endblock %}
+{% block content %}
+
+    <p>{{ event.title }}</p>
+    <p>{{ event.created_by }}</p>
+    <p>{{ event.status }}</p>
+    <p>{{ event.event_description }}</p>
+    <p>{{ event.event_date }}</p>
+    <p>{{ event.event_start_time }}</p>
+    <p>{{ event.type }}</p>
+    <p>{{ event.event_duration }}</p>
+    <p>{{ event.attendees }}</p>
+
+    <div>Ref id:{{ event.id }}</div>
+
+    <form  method="POST">
+        {% csrf_token %}
+        <div>
+            <input name="attendee" value="1" type="hidden" >
+        </div>
+        <button type="submit">Attend Event</button>
+    </form>
+{% endblock %}
