@@ -5,31 +5,51 @@
     <link rel="stylesheet" href="{% static "main/style.css" %}">
 {% endblock %}
 {% block content %}
-    {{ user.username }}
-    <hr>
-    {{ user.email }}
-    <hr>
-    <h1>Events Organised</h1>
-    <hr>
-    {% for organised in organised_events %}
-        {{ organised.title }}
-        <div>{{ organised.event_description }}</div>
-        {{ organised.event_date }}
-        <hr>
-    {% endfor %}
-    <h1>Events Attended</h1>
-    {% for attended in attended_events %}
-        <hr>
-        <p>{{ attended.title }}</p>
-        <p>{{ attended.event_description }}</p>
-        <p>{{ attended.event_date }}</p>
-    {% endfor %}
-    <h1>Work Done</h1>
-    {% for work in work_done %}
-        <hr>
-        <p>{{ work.job.job_name }}</p>
-        <p>{{ work.job.job_description }}</p>
-        <p>{{ work.job.type }}</p>
-        <p>{{ work.job.job_duration }} weeks</p>
-    {% endfor %}
-{% endblock %}
+    <main>
+        <div class="details">
+            <div class="Identifier grid-item">User Id</div>
+            <div class="grid-item">{{ user.id }}</div>
+            <div class="Identifier grid-item">Username</div>
+            <div class="grid-item">{{ user.username }}</div>
+            <div class="Identifier grid-item">Email</div>
+            <div class="grid-item">{{ user.email }}</div>
+        </div>
+        <h1>Events Organised</h1>
+        <div class="activities">
+            {% for organised in organised_events %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ organised.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ organised.event_date }}</h6>
+                        <p class="card-text">{{ organised.event_description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h1>Events Attended</h1>
+        <div class="activities">
+            {% for attended in attended_events %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ attended.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ attended.event_description }}</h6>
+                        <p class="card-text">{{ attended.event_date }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h1>Work Done</h1>
+        <div class="activities">
+            {% for work in work_done %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ work.job.job_name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">worked for {{ work.job.job_duration }} weeks</h6>
+                        <p class="card-text">{{ work.job.job_description }}</p>
+                        <span href="#" class="card-link">Type</span>
+                        <span href="#" class="card-link">{{ work.job.type }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </main>
+    {% endblock %}
