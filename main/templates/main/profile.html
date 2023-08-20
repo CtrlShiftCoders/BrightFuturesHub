@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+{% block title %} My Profile {% endblock %}
+{% block content %}
+     {{ user.email }}
+     {{ user.username }}
+         <br>
+    {% for organised in organised_events %}
+    {{ organised }}
+        {{ organised.event_date }}
+    <br>
+    {% endfor %}
+
+    {% for attended in attended_events %}
+    {{ attended }}
+    <br>
+    {% endfor %}
+{% endblock %}
