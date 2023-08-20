@@ -33,9 +33,31 @@ h1{
 .card{
     margin: 10px;
 }
+
+.content{
+    padding: 20px 60px;
+    margin: 40px 20px 30px 20px;
+}
+.action{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px 5px;
+    margin: 20px 2%;
+}
+.heading a{
+    text-decoration: none;
+    font-size: 1.8em;
+    color: #1AC1EB;
+}
+.heading,.desc{
+    text-align: center;
+    margin: 10px;
+}
+
 @media(max-width:500px){
     .activities{
         justify-content: center
     }
 }
+
 
