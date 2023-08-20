@@ -22,5 +22,6 @@ urlpatterns = [
     path('auth/', include("UserAuth.urls")),
     path('funding/', include("crowdFunding.urls")),
     path('', include("main.urls")),
-    path('events/', include("Community.urls"))
+    path('events/', include("Community.urls")),
+    path('work/',include("workStudy.urls"))
 ]

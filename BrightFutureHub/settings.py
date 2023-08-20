@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'main',
     'UserAuth',
     'crowdFunding',
+    'workStudy',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

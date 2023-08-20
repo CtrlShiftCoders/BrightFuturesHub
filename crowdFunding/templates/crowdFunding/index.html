@@ -18,12 +18,12 @@
     </form>
     {% for fund in active_funds %}
         <hr>
-        <a href="{% url "cf-details" fund.slug %}">
             <div>
+            <a href="{% url "cf-details" fund.slug %}">
                 <div>{{ fund.title }}</div>
                 <div>{{ fund.status }}</div>
                 <div>{{ fund.goal }}</div>
+            </a>
             </div>
-        </a>
     {% endfor %}
 {% endblock %}

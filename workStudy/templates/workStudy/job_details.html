@@ -1,0 +1,15 @@
+{% extends "workStudy/base.html" %}
+{% block title %}{{ job.name }}{% endblock %}
+{% block content %}
+
+<p> {{  job.job_name }} </p> 
+<p> {{  job.job_description }} </p> 
+<p> {{  job.payment }} </p> 
+<p> {{  job.job_duration }} days</p> 
+<p> {{  job.start_date }} </p> 
+<p> {{  job.image }} </p> 
+<p> {{  job.job_category }} </p> 
+<p> {{  job.type }} </p> 
+<p> {{  job.job_slug }} </p> 
+<div><button>Apply for this job</button></div>
+{% endblock %}
