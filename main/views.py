@@ -18,9 +18,11 @@ def user_profile(request):
     author = request.user
     events_organised = author.organiser.all()
     events_attended = author.attendees.all()
+    work_done= author.job_applications.all()
 
     return render(request, "main/profile.html", {
         "user": author,
         "organised_events": events_organised,
-        "attended_events": events_attended
+        "attended_events": events_attended,
+        "work_done":work_done,
     })

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> {% block title %} Title {% endblock %}</title>
-</head>
-<body>
-{% block content  %}
-{% endblock %}
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Title{% endblock %}
+        </title>
+        {% block more_css %}{% endblock %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
 </html>

@@ -1,16 +1,26 @@
 {% extends "workStudy/base.html" %}
+{% load static %}
+{% block head %}
+<script src="{% static "workStudy/js/script.js" %}" defer></script>
+{% endblock %}
 {% block content %}
+<div id="filterBtns">
+</div>
+
+<div id="listings">
 {% if jobs %}
 {% for job in jobs %}
 
+<div class="Jobs">
 <hr>
-<div><a href="{% url "ws-details" job.job_slug %}">
-<p> {{  job.job_name }} </p> 
-<p> {{  job.payment }} </p> 
-<p> {{  job.image }} </p> 
-</a></div>
+<p><a href="{% url "ws-details" job.job_slug %}">{{ job.job_name }}</a></p>
+<p>{{ job.payment }}</p>
+<p>{{ job.image }}</p>
+<p>{{job.type}}</p>
+</div>
 
 {% endfor %}
+</div>
 {% else %}
 <p>No jobs Available</p>
 {% endif %}
