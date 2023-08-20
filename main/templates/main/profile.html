@@ -1,12 +1,16 @@
 {% extends "main/base.html" %}
-{% block title %} My Profile {% endblock %}
+{% block title %}My Profile{% endblock %}
+{% load static %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static "main/style.css" %}">
+{% endblock %}
 {% block content %}
-     {{ user.username }}
-     <hr>
-     {{ user.email }}
-     <hr>
-     <h1>Events Organised</h1>
-     <hr>
+    {{ user.username }}
+    <hr>
+    {{ user.email }}
+    <hr>
+    <h1>Events Organised</h1>
+    <hr>
     {% for organised in organised_events %}
         {{ organised.title }}
         <div>{{ organised.event_description }}</div>
@@ -15,17 +19,17 @@
     {% endfor %}
     <h1>Events Attended</h1>
     {% for attended in attended_events %}
-    <hr>
-    <p>{{ attended.title }}</p>
-    <p>{{ attended.event_description }}</p>
-    <p>{{ attended.event_date }}</p>
+        <hr>
+        <p>{{ attended.title }}</p>
+        <p>{{ attended.event_description }}</p>
+        <p>{{ attended.event_date }}</p>
     {% endfor %}
     <h1>Work Done</h1>
     {% for work in work_done %}
-    <hr>
-    <p>{{ work.job.job_name }}</p>
-    <p>{{ work.job.job_description }}</p>
-    <p>{{ work.job.type }}</p>
-    <p>{{ work.job.job_duration }} weeks</p>
+        <hr>
+        <p>{{ work.job.job_name }}</p>
+        <p>{{ work.job.job_description }}</p>
+        <p>{{ work.job.type }}</p>
+        <p>{{ work.job.job_duration }} weeks</p>
     {% endfor %}
 {% endblock %}
