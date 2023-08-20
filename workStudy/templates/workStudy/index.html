@@ -1,0 +1,17 @@
+{% extends "workStudy/base.html" %}
+{% block content %}
+{% if jobs %}
+{% for job in jobs %}
+
+<hr>
+<div><a href="{% url "ws-details" job.job_slug %}">
+<p> {{  job.job_name }} </p> 
+<p> {{  job.payment }} </p> 
+<p> {{  job.image }} </p> 
+</a></div>
+
+{% endfor %}
+{% else %}
+<p>No jobs Available</p>
+{% endif %}
+{% endblock %}
