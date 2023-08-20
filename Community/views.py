@@ -32,14 +32,13 @@ def details(request, slug):
     event = get_object_or_404(Event, slug=slug)
     attendees = event.attendee_details.all()
     if request.method == "POST":
+        if request.user not in attendees:
+            attendee = int(request.POST.get("attendee"))
+            event.attendees += attendee
 
-        attendee = int(request.POST.get("attendee"))
-        event.attendees += attendee
+            event.attendee_details.add(request.user)
+            event.save()
 
-        event.attendee_details.add(request.user)
-
-
-        event.save()
         return HttpResponseRedirect(reverse("comm-details", args=[slug]))
 
     return render(request, 'Community/details.html', {
