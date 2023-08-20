@@ -9,6 +9,7 @@ from .models import Fund
 def index(request):
     if request.method == "POST":
         new_fund=Fund(
+                user=request.user,
                 title=request.POST.get("title"),
                 content=request.POST.get("description"),
                 goal=request.POST.get("goal"),

@@ -2,6 +2,7 @@
 <!-- {% load tz %} -->
 {% block title %}{{ fund.title }}{% endblock %}
 {% block content %}
+    <p>{{ request.user }}</p>
     <p>{{ fund.title }}</p>
     <p>{{ fund.content }}</p>
     <p>{{ fund.goal }}</p>
