@@ -35,15 +35,15 @@ class Jobs(models.Model):
 
 class JobApplication(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    job=models.ForeignKey(Jobs,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name="job_applications",on_delete=models.CASCADE)
+    job=models.ForeignKey(Jobs,related_name="job_applications",on_delete=models.CASCADE)
     application_date=models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20,default="Under Review")
 
     def __str__(self):
         return (
-                f"id:{self.id}\n",
-                f"user:{self.user}\n",
+                f"id:{self.id}\n"
+                f"user:{self.user}\n"
                 f"job:{self.job}\n,"
                 f"Application Date:{self.application_date}\n"
                 )

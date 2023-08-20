@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Event
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 
 
 @login_required()
