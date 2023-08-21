@@ -4,11 +4,12 @@
 <link rel="stylesheet" href="{% static "UserAuth/style.css" %}">
 {% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}  
 <div class="container2">
   <h1>Sign Up</h1>
   <form method="post" class="container3">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
 
     <button type="submit" class="btn2">Sign Up</button>
   </form>

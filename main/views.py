@@ -11,8 +11,6 @@ def index(request):
 
 @never_cache
 def get_started(request):
-    if request.user:
-        return redirect("global_index")
     return render(request, "main/get_started.html")
 
 
