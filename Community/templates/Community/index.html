@@ -13,7 +13,7 @@
                     <input class="form-control" type="text" name="title" placeholder="title" required />
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="description" name="description" required></textarea>
+                    <textarea class="form-control" id="desc" placeholder="description" name="description" required></textarea>
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="time" name="time" placeholder="Event Time" required />
@@ -23,16 +23,18 @@
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="date" name="date" placeholder="Event Date" required />
-                </div class="form-control">
-                <select name="type" id="event_type">
-                    <option value="hackathon">Hackathon</option>
+                </div>
+                <div class="form-group">
+                <select class="form-select" name="type" id="event_type">
+                    <option  value="hackathon">Hackathon</option>
                     <option value="Seminar">Seminar</option>
                     <option value="Competition">Competition</option>
                     <option value="TED-Talk">TED-Talk</option>
                     <option value="other">Other</option>
                 </select>
-                <div>
-                    <button class="btn btn-info" type="submit">Add Event</button>
+</div>
+                <div class="form-group">
+                    <button class="btn btn-info mt-3 mb-3" type="submit">Add Event</button>
                 </div>
             </form>
         </div>
@@ -40,13 +42,12 @@
             {% for event in upcoming_events %}
                 <section class="fund-list">
                     <a href="{% url "comm-details" event.slug %}">
-                        <p>{{ event.title }}</p>
-                        <p>{{ event.status }}</p>
+                        <h2>{{ event.title }}</h2>
                         <p>{{ event.event_description }}</p>
                         <p>{{ event.event_date }}</p>
-                        <p>{{ event.event_start_time }}</p>
                         <p>{{ event.type }}</p>
-                        <p>{{ event.attendees }}</p>
+                        <p>No. of Attendees: {{ event.attendees }}</p>
+                        <p>Status: <span class="text-info">{{ event.status }}</span></p>
                     </a>
                 </section>
             {% endfor %}
