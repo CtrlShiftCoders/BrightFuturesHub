@@ -6,7 +6,7 @@
     border-radius: 30px;
     background-color: #fafafa;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 1em;
+    align-items: baseline;
     list-style: none;
 }
 .navBar li{
@@ -14,12 +14,12 @@
     padding:0px 10px;
 }
 #app-name{
-    font-family: 'Lilita One', cursive;
+    font-family: 'Itim', cursive;
     color: #1AC1EB;
 }
 .about{
     margin-left: auto !important;
-    padding-top: 10px !important;
+    padding-top: 8px !important;
 }
 #app-name{
     font-size: 1.7em;

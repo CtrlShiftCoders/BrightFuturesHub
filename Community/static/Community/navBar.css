@@ -8,12 +8,13 @@
     font-family: 'Fira Sans', sans-serif;
     font-size: 1em;
     list-style: none;
+    align-items: baseline;
 }
 .navBar li{
     margin:0px 10px;
 }
 #app-name{
-    font-family: 'Lilita One', cursive;
+    font-family: 'Itim', cursive;
     color: #1AC1EB;
 }
 .about{

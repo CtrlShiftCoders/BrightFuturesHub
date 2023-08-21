@@ -29,6 +29,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     padding: 5px 1%; 
+    justify-self: center;
 }
 .card{
     margin: 10px;

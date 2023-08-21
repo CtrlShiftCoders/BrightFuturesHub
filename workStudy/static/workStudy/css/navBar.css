@@ -13,12 +13,11 @@
     margin:0px 10px;
 }
 #app-name{
-    font-family: 'Lilita One', cursive;
+    font-family: 'Itim', cursive;
     color: #1AC1EB;
 }
 .about{
     margin-left: auto !important;
-    padding-top: 10px !important;
 }
 #app-name{
     font-size: 1.7em;
