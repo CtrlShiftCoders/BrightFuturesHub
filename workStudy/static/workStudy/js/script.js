@@ -9,15 +9,21 @@ const Categories = ["Internship", "Remote Job", "Job"]
 Categories.forEach((category) => {
     const btn = document.createElement("button");
     btn.classList.add("filterBtn");
+    btn.classList.add("btn");
+    btn.classList.add("btn-outline-info");
+    console.log(btn.classList);
+    
     btn.textContent = category;
     btnContainer.append(btn)
     btn.addEventListener("click", () => {
         if (filters.indexOf(btn.textContent) != -1) {
             filters.splice(filters.indexOf(btn.textContent), 1)
-            btn.style.backgroundColor = "white"
+            btn.classList.remove("btn-info")
+            btn.classList.add("btn-outline-info");
         } else {
             filters.push(btn.textContent)
-            btn.style.backgroundColor = "blue"
+            btn.classList.add("btn-info")
+            btn.classList.remove("btn-outline-info");
         }
         filter()
     })

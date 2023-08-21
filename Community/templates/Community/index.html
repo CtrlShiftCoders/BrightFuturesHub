@@ -1,34 +1,55 @@
 {% extends "Community/base.html" %}
-{% block title %} Events - Home {% endblock %}
-{% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <div><input type="text" name="title" placeholder="title" required/></div>
-        <div><textarea placeholder="description" name="description" required></textarea></div>
-        <div><input type="time" name="time" placeholder="Event Time" required/></div>
-        <div><input type="number" name="duration" placeholder="Event Duration" required/></div>
-        <div><input type="date" name="date" placeholder="Event Date" required/></div>
-        <select name="type" id="event_type">
-          <option value="hackathon">Hackathon</option>
-          <option value="Seminar">Seminar</option>
-          <option value="Competition">Competition</option>
-          <option value="TED-Talk">TED-Talk</option>
-          <option value="other">Other</option>
-        </select>
-        <div><button type="submit">Add Event</button></div>
-    </form>
-    {% for event in upcoming_events %}
-    <hr>
-        <a href="{% url "comm-details" event.slug %}">
-        <p>{{ event.title }}</p>
-        <p>{{ event.status }}</p>
-        <p>{{ event.event_description }}</p>
-        <p>{{ event.event_date }}</p>
-        <p>{{ event.event_start_time }}</p>
-        <p>{{ event.type }}</p>
-        <p>{{ event.attendees }}</p>
-
-
-    {% endfor %}
-
+{% load static %}
+{% block title %}Events - Home{% endblock %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static "Community/style.css" %}">
 {% endblock %}
+{% block content %}
+    <div class="mainBlock">
+        <div class="fund-form">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input class="form-control" type="text" name="title" placeholder="title" required />
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="time" name="time" placeholder="Event Time" required />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="duration" placeholder="Event Duration" required />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="date" name="date" placeholder="Event Date" required />
+                </div class="form-control">
+                <select name="type" id="event_type">
+                    <option value="hackathon">Hackathon</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Competition">Competition</option>
+                    <option value="TED-Talk">TED-Talk</option>
+                    <option value="other">Other</option>
+                </select>
+                <div>
+                    <button class="btn btn-info" type="submit">Add Event</button>
+                </div>
+            </form>
+        </div>
+        <div class="active_funds">
+            {% for event in upcoming_events %}
+                <section class="fund-list">
+                    <a href="{% url "comm-details" event.slug %}">
+                        <p>{{ event.title }}</p>
+                        <p>{{ event.status }}</p>
+                        <p>{{ event.event_description }}</p>
+                        <p>{{ event.event_date }}</p>
+                        <p>{{ event.event_start_time }}</p>
+                        <p>{{ event.type }}</p>
+                        <p>{{ event.attendees }}</p>
+                    </a>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+        {% endblock %}

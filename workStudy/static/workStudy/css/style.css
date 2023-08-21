@@ -1,0 +1,32 @@
+body{
+    font-size: 1rem;
+}
+.filterBtn{
+    margin-right: 10px;
+}
+
+#listings{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+}
+
+.Jobs{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.Jobs h2 a{
+    text-decoration: none;
+}
+
+.container{
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}

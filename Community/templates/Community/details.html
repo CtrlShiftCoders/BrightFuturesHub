@@ -2,7 +2,7 @@
 <!-- {% load tz %} -->
 {% block title %}{{ event.title }}{% endblock %}
 {% block content %}
-
+<div class="container">
     <p>{{ event.title }}</p>
     <p>{{ event.created_by }}</p>
     <p>{{ event.status }}</p>
@@ -20,6 +20,7 @@
         <div>
             <input name="attendee" value="1" type="hidden" >
         </div>
-        <button type="submit">Attend Event</button>
+        <button class="btn btn-info" type=" submit">Attend Event</button>
     </form>
+</div>
 {% endblock %}
