@@ -1,4 +1,4 @@
-# BrightFuturesHub
+## BrightFuturesHub
 
 ## Table of Contents
 - [Introduction](#introduction)
