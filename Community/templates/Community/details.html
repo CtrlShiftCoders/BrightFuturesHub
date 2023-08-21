@@ -1,25 +1,28 @@
 {% extends "Community/base.html" %}
-<!-- {% load tz %} -->
+{% load static %}
 {% block title %}{{ event.title }}{% endblock %}
+{% block more_css %}
+<link rel="stylesheet" href="{% static "Community/style.css" %}">
+{% endblock %}
 {% block content %}
-
-    <p>{{ event.title }}</p>
-    <p>{{ event.created_by }}</p>
-    <p>{{ event.status }}</p>
+<div class="container boxy">
+    <h2 class="text-info mt-2">{{ event.title }}</h2>
+    <p>This event is being organised by <strong>{{ event.created_by }}</strong></p>
+    <p>Ref id: <span class="text-info">{{ event.id }}</span></p>
+    <p>Status: {{ event.status }}</p>
     <p>{{ event.event_description }}</p>
-    <p>{{ event.event_date }}</p>
-    <p>{{ event.event_start_time }}</p>
-    <p>{{ event.type }}</p>
-    <p>{{ event.event_duration }}</p>
-    <p>{{ event.attendees }}</p>
+    <p> Event on {{ event.event_date }} at {{ event.event_start_time }}</p>
+    <p>Type of event: {{ event.type }}</p>
+    <p>Event will last {{ event.event_duration }}hrs</p>
+    <p>No. of participants: {{ event.attendees }}</p>
 
-    <div>Ref id:{{ event.id }}</div>
 
     <form  method="POST">
         {% csrf_token %}
         <div>
             <input name="attendee" value="1" type="hidden" >
         </div>
-        <button type="submit">Attend Event</button>
+        <button class="btn btn-info mb-4" type=" submit">Attend Event</button>
     </form>
+</div>
 {% endblock %}

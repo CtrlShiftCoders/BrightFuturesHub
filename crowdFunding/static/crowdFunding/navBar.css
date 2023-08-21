@@ -6,6 +6,7 @@
     border-radius: 30px;
     background-color: #fafafa;
     font-family: 'Fira Sans', sans-serif;
+    align-items: baseline;
     font-size: 1em;
     list-style: none;
 }
@@ -13,7 +14,7 @@
     margin:0px 10px;
 }
 #app-name{
-    font-family: 'Lilita One', cursive;
+    font-family: 'Itim', cursive;
     color: #1AC1EB;
 }
 .about{
@@ -27,6 +28,10 @@
 #navLast{
     font-family: 'Dosis', sans-serif;
     font-size: 1.4em;
+}
+
+.nav-link:hover{
+    color: #1AC1EB;
 }
 @media(max-width:500px){
     .navBar{

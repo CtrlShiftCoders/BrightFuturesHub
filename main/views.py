@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
 
 @login_required()
@@ -8,8 +9,10 @@ def index(request):
     print(author.username, author.email)
     return render(request, "main/index.html")
 
-
+@never_cache
 def get_started(request):
+    if request.user:
+        return redirect("global_index")
     return render(request, "main/get_started.html")
 
 

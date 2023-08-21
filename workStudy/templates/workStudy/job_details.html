@@ -1,5 +1,9 @@
 {% extends "workStudy/base.html" %}
 {% block title %}{{ job.name }}{% endblock %}
+{% load static %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static "workStudy/css/style.css" %}">
+{% endblock %}
 {% block content %}
     {% if messages %}
         <ul class="messages">
@@ -8,19 +12,20 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <p>{{ job.job_name }}</p>
-    <p>{{ job.job_description }}</p>
-    <p>{{ job.payment }}</p>
-    <p>{{ job.job_duration }} days</p>
-    <p>{{ job.start_date }}</p>
-    <p>{{ job.image }}</p>
-    <p>{{ job.job_category }}</p>
-    <p>{{ job.type }}</p>
-    <p>{{ job.job_slug }}</p>
-    <div>
-        <form action="{% url "ws-details" job.job_slug %}" method="POST">
-            {% csrf_token %}
-            <button>Apply for this job</button>
-        </form>
+    <div class="container">
+        <h3 class="text-info">{{ job.job_name }}</h3>
+        <p>{{ job.job_description }}</p>
+        <p>Salary: {{ job.payment }}$</p>
+        <p>{{ job.job_duration }} days</p>
+        <p>{{ job.start_date }}</p>
+        <p>{{ job.image }}</p>
+        <p>Category: {{ job.job_category }}</p>
+        <p>Type: {{ job.type }}</p>
+        <div>
+            <form action="{% url "ws-details" job.job_slug %}" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-outline-info">Apply for this job</button>
+            </form>
+        </div>
     </div>
 {% endblock %}

@@ -1,17 +1,22 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
 * {
     margin: 0;
     padding: 0;
     /*add image /static/media/auth.jpg here*/
 }
 
-.avatar {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: relative;
-    right: 20px;
-}
+/* .avatar { */
+/*     vertical-align: middle; */
+/*     width: 50px; */
+/*     height: 50px; */
+/*     border-radius: 50%; */
+/*     position: relative; */
+/*     right: 20px; */
+/* } */
 
 main {
     font-family: Arial, sans-serif;
