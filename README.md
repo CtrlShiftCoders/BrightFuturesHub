@@ -1,4 +1,4 @@
-# Bright Futures Hub
+# BrightFuturesHub
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -10,7 +10,7 @@
 - [License](#license)
 
 ## Introduction
-Bright Futures Hub is a web platform dedicated to empowering First-Generation and Low-Income (FGLI) students by providing a comprehensive suite of tools and resources. The platform aims to bridge the gap between opportunities and support for FGLI students, helping them succeed academically, professionally, and personally.
+BrightFuturesHub is a web platform dedicated to empowering First-Generation and Low-Income (FGLI) students by providing a comprehensive suite of tools and resources. The platform aims to bridge the gap between opportunities and support for FGLI students, helping them succeed academically, professionally, and personally.
 
 ## Features
 - **Work-Study Matchmaking:** Connects FGLI students with relevant part-time job opportunities, internships, and work-study positions that align with their academic schedules and career aspirations.
@@ -45,10 +45,10 @@ cd BrightFuturesHub`
 `python manage.py runserver`
 
 ## Usage
-Visit `http://localhost:8000` in your web browser to access the Brighter Futures Hub application. Explore the different features, including work-study matchmaking, community events, and accessing resources tailored to FGLI students' needs.
+Visit `http://localhost:8000` in your web browser to access the BrightFuturesHub application. Explore the different features, including work-study matchmaking, community events, and accessing resources tailored to FGLI students' needs.
 
 ## Contributing
-We welcome contributions to improve Brighter Futures Hub! If you have suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+We welcome contributions to improve BrightFuturesHub! If you have suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
