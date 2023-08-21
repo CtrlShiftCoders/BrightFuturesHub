@@ -1,29 +1,40 @@
 {% extends "crowdFunding/base.html" %}
+{% load static %}
 {% block title %}Crowd Funding{% endblock %}
+{% block more_css %}
+<link rel="stylesheet" href="{% static "crowdFunding/style.css" %}">
+{% endblock %}
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <div>
-            <input type="text" name="title" placeholder="title" required />
-        </div>
-        <div>
-            <textarea placeholder="description" name="description" required></textarea>
-        </div>
-        <div>
-            <input type="number" name="goal" placeholder="goal" required />
-        </div>
-        <div>
-            <button type="submit">Create Request</button>
-        </div>
-    </form>
-    {% for fund in active_funds %}
-        <hr>
-            <div>
-            <a href="{% url "cf-details" fund.slug %}">
-                <div>{{ fund.title }}</div>
-                <div>{{ fund.status }}</div>
-                <div>{{ fund.goal }}</div>
-            </a>
-            </div>
+    <div class="mainBlock">
+        <div class="fund-form">
+            <h1>Raise Fund</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input class="form-control" type="text" name="title" placeholder="title" required />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="goal" placeholder="goal" required />
+                </div>
+                <div >
+                    <button class="btn btn-info" type="submit">Create Request</button>
+                </div>
+            </form>
+</div>
+            <div class="active_funds">
+                <h1>Donate to Funds</h1>
+            {% for fund in active_funds %}
+        <section class="fund-list">
+                    <a href="{% url "cf-details" fund.slug %}">
+                        <h2>{{ fund.title }}</h2>
+                        <div>{{ fund.status }}</div>
+                        <div>{{ fund.goal }}$</div>
+                    </a>
+            </section>
     {% endfor %}
+</div>
+        </div>
 {% endblock %}

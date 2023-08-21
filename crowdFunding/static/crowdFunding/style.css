@@ -1,3 +1,45 @@
-*{
-    background-color: red;
+.mainBlock{
+    font-family: 'Fira Sans', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100vw;
+}
+/* form{ */
+/*     min-width: 300px; */
+/* } */
+.active_funds{
+    width: 100%;
+    padding: 10px;
+}
+.fund-form{
+ padding: 10px;
+ min-width:300px;
+ max-width:600px;
+}
+.form-group{
+    margin: 10px 5px;
+}
+
+.fund-list{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px
+}
+.fund-list a{
+    text-decoration: none;
+    color: black;
+}
+.fund-list a h2{
+    color:#1AC1EB;
+}
+
+.boxy{
+    border:1px solid #ccc;
+}
+
+@media(max-width:700px){
+    .mainBlock{
+        display: block;
+    }
 }

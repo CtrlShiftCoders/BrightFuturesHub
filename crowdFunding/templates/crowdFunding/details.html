@@ -1,22 +1,39 @@
 {% extends "crowdFunding/base.html" %}
-<!-- {% load tz %} -->
+{% load static %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static "crowdFunding/style.css" %}">
+{% endblock %}
 {% block title %}{{ fund.title }}{% endblock %}
 {% block content %}
-    <p>{{ request.user }}</p>
-    <p>{{ fund.title }}</p>
-    <p>{{ fund.content }}</p>
-    <p>{{ fund.goal }}</p>
-    <p>{{ fund.amount_gained }}</p>
-    <p>{{ fund.status }}</p>
-    {{ fund.event_datetime }}
-
-    <div>Ref id:{{ fund.id }}</div>
-
-    <form action="{% url 'cf-details' fund.slug %}" method="POST">
-        {% csrf_token %}
-        <div>
-            <input type="number" name="donation" placeholder="donation amount" required>
-        </div>
-        <button type="submit">Donate</button>
-    </form>
+    <div class="container boxy">
+        <h3 class="text-info">{{ fund.title }}</h3>
+        <p>
+            This fund is raise by <strong>{{ request.user }}</strong>
+        </p>
+        <p>
+            Ref id: <span class="text-info">{{ fund.id }}</span>
+        </p>
+        <p>Request was made on {{ fund.event_datetime }}</p>
+        <p>{{ fund.content }}</p>
+        <p>
+            Goal: <span class="text-info">{{ fund.goal }}$</span>
+        </p>
+        <p>
+            Funds Raised: <span class="text text-info">{{ fund.amount_gained }}$</span>
+        </p>
+        <p>Status: {{ fund.status }}</p>
+        <form action="{% url 'cf-details' fund.slug %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="number"
+                       class="form-control"
+                       name="donation"
+                       placeholder="donation amount"
+                       required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info mb-2 ml-4" type="submit">Donate</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
