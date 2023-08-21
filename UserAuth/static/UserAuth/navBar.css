@@ -1,0 +1,46 @@
+.navBar{
+    display: flex;
+    padding: 10px;
+    margin: 10px 2% 10px 2%; 
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #fafafa;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1em;
+    list-style: none;
+}
+.navBar li{
+    margin:0px 10px;
+    padding:0px 10px;
+}
+#app-name{
+    font-family: 'Lilita One', cursive;
+    color: #1AC1EB;
+}
+.about{
+    margin-left: auto !important;
+    padding-top: 10px !important;
+}
+#app-name{
+    font-size: 1.7em;
+    font-weight: bold;
+}
+#navLast{
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.4em;
+}
+@media(max-width:500px){
+    .navBar{
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    .navBar li{
+        border-bottom: 1px solid lightgrey;
+    }
+    .about{
+        margin-left: 10px !important;
+    }
+    #navLast{
+        border-bottom: 0px;
+    }
+}

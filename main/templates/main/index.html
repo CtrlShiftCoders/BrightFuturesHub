@@ -1,7 +1,31 @@
 {% extends "main/base.html" %}
-{% block title %} Index {% endblock %}
+{% block title %}Index{% endblock %}
+{% load static %}
+{% block more_css %}
+<link rel="stylesheet" href="{% static "main/style.css" %}">
+{% endblock %}
 {% block content %}
-    <a href="{% url "cf-home" %}"><button> CrowdFunding Home </button></a>
-    <a href="{% url "comm-home" %}"><button> Community Home </button></a>
-    <a href="{% url "logout" %}"><button>Logout</button></a>
+    <main>
+        <div class="content">
+            <div class="action">
+                <div class="heading">
+                    <a href="{% url "cf-home" %}">Raise or Donate Funds</a>
+                </div>
+                <div class="desc">Join Us in Creating Something Bigger: Your Support Makes the Vision Possible!</div>
+            </div>
+            <div class="action">
+                <div class="heading">
+                    <a href="{% url "comm-home" %}">Create or Join Events</a>
+                </div>
+                <div class="desc">Building Blocks of Experience: Events Stack to Shape Our Unique Journey.</div>
+            </div>
+            <div class="action">
+                <div class="heading">
+                    <a href="{% url "ws-index" %}">Gain Real World Experience</a>
+                </div>
+                <div class="desc">Turning Learning into Living and Going Beyond The Classroom.</div>
+            </div>
+        </div>
+
+    </main>
 {% endblock %}

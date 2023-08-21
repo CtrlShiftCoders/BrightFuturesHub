@@ -1,1 +1,63 @@
+main{
+    font-family: 'Fira Sans', sans-serif;
+}
+h1{
+    color: #1AC1EB;
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    margin: 5px;
+}
+.details{
+    font-size: 1.2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fafafa;
+    border-radius: 10px;
+    margin: 20px 3%;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.Identifier{
+    font-weight: bold;
+    color: #1AC1EB;
+}
+.grid-item {
+  border-bottom: 1px solid #ccc;
+}
+.activities{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 1%; 
+}
+.card{
+    margin: 10px;
+}
+
+.content{
+    padding: 20px 60px;
+    margin: 40px 20px 30px 20px;
+}
+.action{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px 5px;
+    margin: 20px 2%;
+}
+.heading a{
+    text-decoration: none;
+    font-size: 1.8em;
+    color: #1AC1EB;
+}
+.heading,.desc{
+    text-align: center;
+    margin: 10px;
+}
+
+@media(max-width:500px){
+    .activities{
+        justify-content: center
+    }
+}
+
 
