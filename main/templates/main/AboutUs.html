@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% block title %}About Us{% endblock %}
+{% load static %}
+{% block more_css %}
+    <link rel="stylesheet" href="{% static "main/about.css" %}">
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="content">
+            <img src="{% static "images/bright-futures-hub-logo.png" %}" id="logo" alt="logo">
+            <div class="team">
+                <p>
+                    <strong>This project was made possible by a team of passionate developers committed to creating innovative solutions using their coding and programming skills. Our team consists of Aryan Gupta, Aryan Jain, Neelansh Sharma and Shreya Pant.</strong>
+                </p>
+                <p>
+                    We have tried to make an impact on first-generation and low-income (FGLI) students lives through our app. At BrightFuturesHub, our mission is to break down barriers and create opportunities for those facing financial constraints. We understand the unique challenges that FGLI students encounter on their educational journey, and we are committed to providing them with the tools they need to succeed
+                </p>
+                <div class="mt-4 text-center">
+                    Made with <span class=text-danger>&hearts;</span> by <span class="text-info">BrightFuturesHub Team</span>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

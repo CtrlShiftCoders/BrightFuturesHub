@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import HttpResponse, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 
@@ -11,8 +11,6 @@ def index(request):
 
 @never_cache
 def get_started(request):
-    if request.user:
-        return redirect("global_index")
     return render(request, "main/get_started.html")
 
 
@@ -29,3 +27,6 @@ def user_profile(request):
         "attended_events": events_attended,
         "work_done":work_done,
     })
+
+def about(request):
+    return render(request,"main/AboutUs.html")
