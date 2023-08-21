@@ -38,6 +38,7 @@ cd BrightFuturesHub`
 `pip install -r requirements.txt`
 
 5. Set up the database:
+`python manage.py makemigrations`
 `python manage.py migrate`
 
 6. Run the development server:
